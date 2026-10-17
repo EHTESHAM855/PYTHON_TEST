@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A beginner-friendly Python diagnostic assessment for students.">
+  <title>Python Lab — Diagnostic Challenge</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Python Lab home"><span class="brand-mark">Py</span><span>Python Lab</span></a>
+    <div class="top-meta"><span class="live-dot"></span> Diagnostic mode <span class="top-divider">•</span> Class 9</div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-line"></span> YOUR SKILLS, YOUR NEXT LEVEL</div>
+      <h1>Think it.<br><span>Code it.</span></h1>
+      <p class="hero-copy">A practical challenge to discover what you already know and what to practise next. Mistakes are useful data here.</p>
+      <div class="hero-pills"><span>18 questions</span><span>6 skill areas</span><span>About 45–60 min</span></div>
+    </section>
+
+    <section class="notice">
+      <div class="notice-icon">i</div>
+      <div><strong>How to get a useful result</strong><p>Work independently. Don’t use AI or search for answers during the assessment. If you get stuck, write what you think and move on. Your teacher is looking for your current skills, not perfection.</p></div>
+    </section>
+
+    <section class="dashboard">
+      <div class="progress-card">
+        <div class="progress-top"><span class="section-label">YOUR PROGRESS</span><strong id="progressText">0 of 18 answered</strong></div>
+        <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+        <div class="progress-bottom"><span id="progressHint">Start with any question.</span><span id="progressPercent">0%</span></div>
+      </div>
+      <div class="timer-card">
+        <div class="timer-icon">◷</div>
+        <div><span class="section-label">TIME ELAPSED</span><div id="timer">00:00</div></div>
+        <button id="timerToggle" class="text-button" type="button">Pause</button>
+      </div>
+    </section>
+
+    <form id="assessmentForm">
+      <section class="section-heading">
+        <div><span class="section-kicker">01 / FOUNDATION</span><h2>Python basics</h2><p>Check your understanding of variables, data types and input/output.</p></div>
+        <span class="section-count">4 questions</span>
+      </section>
+
+      <article class="question" data-q="q1">
+        <div class="qtop"><span class="qnumber">01</span><span class="skill-tag">Output prediction</span><span class="marks">2 marks</span></div>
+        <h3>What will this code display?</h3>
+        <pre><code>name = "Ali"
+age = 14
+print(name)
+print(age + 1)</code></pre>
+        <textarea name="q1" rows="2" placeholder="Write the exact output..." aria-label="Answer to question 1"></textarea>
+      </article>
+
+      <article class="question" data-q="q2">
+        <div class="qtop"><span class="qnumber">02</span><span class="skill-tag">Data types</span><span class="marks">2 marks</span></div>
+        <h3>Write the data type of each value.</h3>
+        <div class="mini-grid"><label>25 <input name="q2a" placeholder="e.g. int"></label><label>3.14 <input name="q2b" placeholder="data type"></label><label>"25" <input name="q2c" placeholder="data type"></label><label>True <input name="q2d" placeholder="data type"></label></div>
+      </article>
+
+      <article class="question" data-q="q3">
+        <div class="qtop"><span class="qnumber">03</span><span class="skill-tag">Debugging</span><span class="marks">2 marks</span></div>
+        <h3>Fix the error in this program.</h3>
+        <pre><code>name = input("Enter your name: ")
+print("Hello, " name)</code></pre>
+        <textarea name="q3" rows="3" placeholder="Write the corrected line or full code..." aria-label="Answer to question 3"></textarea>
+      </article>
+
+      <article class="question" data-q="q4">
+        <div class="qtop"><span class="qnumber">04</span><span class="skill-tag">Input / output</span><span class="marks">2 marks</span></div>
+        <h3>Write code that asks for two whole numbers and displays their sum.</h3>
+        <textarea name="q4" rows="4" class="code-input" spellcheck="false" placeholder="# Write your Python code here..." aria-label="Answer to question 4"></textarea>
+      </article>
+
+      <section class="section-heading">
+        <div><span class="section-kicker">02 / READ THE CODE</span><h2>Trace the logic</h2><p>Read each line carefully. Don’t run the code in your head too quickly.</p></div>
+        <span class="section-count">3 questions</span>
+      </section>
+
+      <article class="question" data-q="q5">
+        <div class="qtop"><span class="qnumber">05</span><span class="skill-tag">Variable tracing</span><span class="marks">3 marks</span></div>
+        <h3>What is the exact output?</h3>
+        <pre><code>x = 5
+y = 2
+x = x + y
+y = x * 2
+print(x)
+print(y)</code></pre>
+        <textarea name="q5" rows="2" placeholder="Write the output..." aria-label="Answer to question 5"></textarea>
+      </article>
+
+      <article class="question" data-q="q6">
+        <div class="qtop"><span class="qnumber">06</span><span class="skill-tag">Conditions</span><span class="marks">3 marks</span></div>
+        <h3>What will this program print?</h3>
+        <pre><code>marks = 65
+if marks >= 80:
+    print("Excellent")
+elif marks >= 50:
+    print("Pass")
+else:
+    print("Try again")</code></pre>
+        <textarea name="q6" rows="2" placeholder="Write the output..." aria-label="Answer to question 6"></textarea>
+      </article>
+
+      <article class="question" data-q="q7">
+        <div class="qtop"><span class="qnumber">07</span><span class="skill-tag">Loops</span><span class="marks">2 marks</span></div>
+        <h3>How many times will <code>Hello</code> be printed? Explain why.</h3>
+        <pre><code>for i in range(1, 5):
+    print("Hello")</code></pre>
+        <textarea name="q7" rows="2" placeholder="Number of times and reason..." aria-label="Answer to question 7"></textarea>
+      </article>
+
+      <section class="section-heading">
+        <div><span class="section-kicker">03 / MAKE A DECISION</span><h2>Conditions & logic</h2><p>Turn a real-world rule into a clear decision.</p></div>
+        <span class="section-count">3 questions</span>
+      </section>
+
+      <article class="question" data-q="q8">
+        <div class="qtop"><span class="qnumber">08</span><span class="skill-tag">Problem solving</span><span class="marks">3 marks</span></div>
+        <h3>Write a program that asks for a number and prints whether it is even or odd.</h3>
+        <textarea name="q8" rows="5" class="code-input" spellcheck="false" placeholder="# Your code..." aria-label="Answer to question 8"></textarea>
+      </article>
+
+      <article class="question" data-q="q9">
+        <div class="qtop"><span class="qnumber">09</span><span class="skill-tag">If / else</span><span class="marks">3 marks</span></div>
+        <h3>A student passes if their mark is at least 40. Write an if/else statement that prints Pass or Fail.</h3>
+        <textarea name="q9" rows="4" class="code-input" spellcheck="false" placeholder="# Assume marks already contains a number..." aria-label="Answer to question 9"></textarea>
+      </article>
+
+      <article class="question" data-q="q10">
+        <div class="qtop"><span class="qnumber">10</span><span class="skill-tag">Boolean logic</span><span class="marks">2 marks</span></div>
+        <h3>What is the output?</h3>
+        <pre><code>age = 14
+has_ticket = True
+
+if age >= 13 and has_ticket:
+    print("Allowed")
+else:
+    print("Not allowed")</code></pre>
+        <div class="choice-list">
+          <label class="choice"><input type="radio" name="q10" value="Allowed"><span>Allowed</span></label>
+          <label class="choice"><input type="radio" name="q10" value="Not allowed"><span>Not allowed</span></label>
+          <label class="choice"><input type="radio" name="q10" value="No output"><span>No output</span></label>
+        </div>
+      </article>
+
+      <section class="section-heading">
+        <div><span class="section-kicker">04 / REPEAT & REPAIR</span><h2>Loops & debugging</h2><p>Every programmer gets errors. The skill is knowing what to do next.</p></div>
+        <span class="section-count">3 questions</span>
+      </section>
+
+      <article class="question" data-q="q11">
+        <div class="qtop"><span class="qnumber">11</span><span class="skill-tag">For loop</span><span class="marks">3 marks</span></div>
+        <h3>Write a loop that prints the numbers from 1 to 10.</h3>
+        <textarea name="q11" rows="4" class="code-input" spellcheck="false" placeholder="# Your code..." aria-label="Answer to question 11"></textarea>
+      </article>
+
+      <article class="question" data-q="q12">
+        <div class="qtop"><span class="qnumber">12</span><span class="skill-tag">While loop / debugging</span><span class="marks">3 marks</span></div>
+        <h3>This code should print 1, 2, 3, 4, 5. It does not stop. Fix it.</h3>
+        <pre><code>i = 1
+while i <= 5:
+    print(i)</code></pre>
+        <textarea name="q12" rows="4" class="code-input" spellcheck="false" placeholder="# Corrected code..." aria-label="Answer to question 12"></textarea>
+      </article>
+
+      <article class="question" data-q="q13">
+        <div class="qtop"><span class="qnumber">13</span><span class="skill-tag">Tracing + explanation</span><span class="marks">4 marks</span></div>
+        <h3>What is printed, and how does <code>total</code> change during the loop?</h3>
+        <pre><code>total = 0
+for i in range(1, 4):
+    total = total + i
+print(total)</code></pre>
+        <textarea name="q13" rows="3" placeholder="Output and step-by-step explanation..." aria-label="Answer to question 13"></textarea>
+      </article>
+
+      <section class="section-heading">
+        <div><span class="section-kicker">05 / BUILD SOMETHING</span><h2>Independent coding</h2><p>Try to turn the task into steps before writing code.</p></div>
+        <span class="section-count">3 questions</span>
+      </section>
+
+      <article class="question" data-q="q14">
+        <div class="qtop"><span class="qnumber">14</span><span class="skill-tag">Arithmetic + input</span><span class="marks">4 marks</span></div>
+        <h3>A notebook costs ₹40. Ask how many notebooks the user wants, then display the total cost.</h3>
+        <div class="example-output"><span>Example</span><code>How many notebooks? 3<br>Total cost: 120</code></div>
+        <textarea name="q14" rows="5" class="code-input" spellcheck="false" placeholder="# Write the complete program..." aria-label="Answer to question 14"></textarea>
+      </article>
+
+      <article class="question" data-q="q15">
+        <div class="qtop"><span class="qnumber">15</span><span class="skill-tag">Loop + range</span><span class="marks">4 marks</span></div>
+        <h3>Ask for a number and print every number from 1 up to that number.</h3>
+        <div class="example-output"><span>Example</span><code>Enter a number: 5<br>1<br>2<br>3<br>4<br>5</code></div>
+        <textarea name="q15" rows="5" class="code-input" spellcheck="false" placeholder="# Write the complete program..." aria-label="Answer to question 15"></textarea>
+      </article>
+
+      <article class="question" data-q="q16">
+        <div class="qtop"><span class="qnumber">16</span><span class="skill-tag">Mini project</span><span class="marks">4 marks</span></div>
+        <h3>Create a mini quiz that asks “What is 5 × 6?” and prints “Correct!” if the answer is right, otherwise “Try again!”.</h3>
+        <textarea name="q16" rows="6" class="code-input" spellcheck="false" placeholder="# Write the complete program..." aria-label="Answer to question 16"></textarea>
+      </article>
+
+      <section class="section-heading">
+        <div><span class="section-kicker">06 / EXPLAIN YOUR THINKING</span><h2>Programmer mindset</h2><p>Understanding matters more than copying a perfect answer.</p></div>
+        <span class="section-count">2 questions</span>
+      </section>
+
+      <article class="question" data-q="q17">
+        <div class="qtop"><span class="qnumber">17</span><span class="skill-tag">Conceptual understanding</span><span class="marks">2 marks</span></div>
+        <h3>What is the difference between these two lines?</h3>
+        <pre><code>age = input("Enter age: ")
+age = int(input("Enter age: "))</code></pre>
+        <textarea name="q17" rows="3" placeholder="Explain in your own words..." aria-label="Answer to question 17"></textarea>
+      </article>
+
+      <article class="question" data-q="q18">
+        <div class="qtop"><span class="qnumber">18</span><span class="skill-tag">Debugging strategy</span><span class="marks">2 marks</span></div>
+        <h3>Your program runs but gives the wrong answer. Name two things you could do to find the problem.</h3>
+        <textarea name="q18" rows="3" placeholder="Write two actions..." aria-label="Answer to question 18"></textarea>
+      </article>
+
+      <section class="submit-panel">
+        <div><span class="section-kicker">FINISH STRONG</span><h2>Ready to review?</h2><p>Your answers will be organised into a report for your teacher. This is a diagnostic, not a pass/fail exam.</p></div>
+        <div class="submit-actions"><button class="primary-button" id="submitBtn" type="button">Create my report <span>→</span></button><button class="secondary-button" id="reviewBtn" type="button">Review unanswered</button></div>
+      </section>
+    </form>
+
+    <section id="results" class="results hidden" aria-live="polite">
+      <div class="results-head"><div><span class="section-kicker">ASSESSMENT COMPLETE</span><h2>Your learning snapshot</h2><p>This report tracks completion and response patterns. Your teacher should review the answers before assigning scores.</p></div><div class="result-stamp">PY<br>LAB</div></div>
+      <div class="result-stats">
+        <div class="result-stat"><span class="section-label">ANSWERED</span><strong id="resultAnswered">0/18</strong><small>Questions attempted</small></div>
+        <div class="result-stat"><span class="section-label">COMPLETION</span><strong id="resultCompletion">0%</strong><small>Of all questions</small></div>
+        <div class="result-stat"><span class="section-label">TIME SPENT</span><strong id="resultTime">00:00</strong><small>Active assessment time</small></div>
+      </div>
+      <h3 class="subhead">Coverage by skill area</h3>
+      <div id="skillResults" class="skill-results"></div>
+      <div class="teacher-note"><strong>Important for the teacher</strong><p>This website does not automatically grade open-ended code. Check correctness, independence, and the student's explanation in a short follow-up session.</p></div>
+      <div class="results-actions"><button id="downloadBtn" class="primary-button" type="button">Download teacher report ↓</button><button id="backBtn" class="secondary-button" type="button">Back to answers</button></div>
+    </section>
+
+    <footer><div class="brand footer-brand"><span class="brand-mark">Py</span><span>Python Lab</span></div><span>Built for practice, not perfection.</span></footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
