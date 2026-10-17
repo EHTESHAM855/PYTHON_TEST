@@ -1,63 +1,32 @@
-# Python Lab — Diagnostic Assessment (Flask + Vercel)
+# Python Lab — Password-protected Flask assessment on Vercel
 
-A responsive, browser-based Python diagnostic assessment for a beginner / Class 9 student. It records responses in the current browser session and generates a downloadable text report. It does **not** store answers on a server or automatically grade open-ended code.
+## Files
 
-## Project structure
+- `app.py` — Flask routes and server-side password/session protection
+- `templates/login.html` — login page
+- `templates/index.html` — your existing assessment page
+- `templates/setup_error.html` — setup warning if environment variables are missing
+- `requirements.txt` — Flask dependency
 
-```text
-python_diagnostic_vercel/
-├── app.py
-├── requirements.txt
-├── templates/
-│   └── index.html
-└── public/
-    ├── app.js
-    └── style.css
-```
+## Vercel environment variables
 
-## Run locally
+In Vercel, open **Project → Settings → Environment Variables** and add:
 
-Requires Python 3.10+.
+1. `ASSESSMENT_PASSWORD` — the password you choose for the student.
+2. `SESSION_SECRET` — a long, random secret used to sign session cookies. Generate a different random value; do not reuse the assessment password.
 
-```bash
-python -m venv .venv
-# Windows:
-.venv\\Scripts\\activate
-# macOS/Linux:
-source .venv/bin/activate
+Apply the variables to Production (and Preview if you will test preview deployments), then redeploy.
 
-pip install -r requirements.txt
-flask --app app run --debug
-```
+## Deploy
 
-Open `http://127.0.0.1:5000`.
+Keep the existing Vercel project and GitHub repository. Replace/add these files while preserving the structure, then commit and push. Vercel should redeploy automatically.
 
-## Deploy to Vercel
+The login is at `/`. The assessment route is `/assessment` and redirects to login unless the session is authenticated. A successful login lasts up to 8 hours, after which the student must sign in again. `/logout` clears the session (POST only).
 
-This project uses Vercel's current zero-configuration Flask deployment conventions.
+## Security notes
 
-1. Extract the ZIP.
-2. Upload the project files to a GitHub repository, keeping the same folder structure.
-3. In Vercel, choose **Add New → Project** and import that repository.
-4. Vercel should detect `app.py` as the Flask application and install `requirements.txt`.
-5. Deploy, then open the provided `.vercel.app` URL.
-
-Static assets are in `public/`, which Vercel serves from its CDN. The Flask app and template are at the project root.
-
-Official guide: https://vercel.com/kb/guide/ship-a-flask-app-on-vercel
-
-## What the site does
-
-- 18 questions across Python basics, tracing, conditions, loops, debugging, independent coding, and explanation.
-- Progress tracker and elapsed-time timer.
-- Highlights unanswered questions.
-- Builds a teacher report that can be downloaded as a text file.
-- Does not show the answer key to the student.
-
-## Important limitations
-
-- This is a diagnostic worksheet website, not a secure exam platform.
-- Answers are processed in the browser and are not uploaded to a database.
-- The timer is a convenience, not proctoring.
-- The site cannot prevent AI use or detect copied answers. For a meaningful diagnosis, ask the student to complete it in a supervised session and then explain or modify selected answers live.
-- The website tracks completion by skill area, not correctness. Review the answers yourself before deciding which topics need work.
+- The assessment HTML is served by Flask only after server-side authentication. The login page does not include the assessment or its answer key.
+- The password is not stored in HTML/JavaScript; it is read from the server environment.
+- This is suitable for a small private tutoring assessment, but it is not a full enterprise authentication system. There is no persistent rate-limiting store, so consider stronger rate limiting if it becomes public or sensitive.
+- If an earlier version of the assessment was publicly deployed, assume its client-side answer key may already have been visible. This update protects it going forward but cannot undo prior exposure.
+- Do not commit actual passwords or session secrets to GitHub.
